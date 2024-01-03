@@ -555,6 +555,7 @@ def aks_create(
     image_cleaner_interval_hours=None,
     enable_keda=False,
     enable_vpa=False,
+    enable_addon_autoscaling=False,
     # addons
     enable_addons=None,
     workspace_resource_id=None,
@@ -729,6 +730,8 @@ def aks_update(
     disable_keda=False,
     enable_vpa=False,
     disable_vpa=False,
+    enable_addon_autoscaling=False,
+    disable_addon_autoscaling=False,
     enable_force_upgrade=False,
     disable_force_upgrade=False,
     upgrade_override_until=None,

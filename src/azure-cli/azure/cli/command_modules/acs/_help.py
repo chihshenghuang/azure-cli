@@ -516,6 +516,9 @@ parameters:
   - name: --enable-vpa
     type: bool
     short-summary: Enable vertical pod autoscaler for cluster.
+  - name: --enable-addon-autoscaling
+    type: bool
+    short-summary: Enable addon autoscaling for cluster.
   - name: --nodepool-allowed-host-ports
     type: string
     short-summary: Expose host ports on the node pool. When specified, format should be a space-separated list of ranges with protocol, eg. `80/TCP 443/TCP 4000-5000/TCP`.
@@ -602,6 +605,8 @@ examples:
     text: az aks create -g MyResourceGroup -n MyManagedCluster --enable-azure-monitor-metrics
   - name: Create a kubernetes cluster with vertical pod autoscaler enaled.
     text: az aks create -g MyResourceGroup -n MyManagedCluster --enable-vpa
+  - name: Create a kubernetes cluster with addon autoscaling enaled.
+    text: az aks create -g MyResourceGroup -n MyManagedCluster --enable-addon-autoscaling
   - name: create a kubernetes cluster with a Capacity Reservation Group(CRG) ID.
     text: az aks create -g MyResourceGroup -n MyMC --kubernetes-version 1.20.9 --node-vm-size VMSize --assign-identity "subscriptions/SubID/resourceGroups/RGName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID" --enable-managed-identity --crg-id "subscriptions/SubID/resourceGroups/RGName/providers/Microsoft.ContainerService/CapacityReservationGroups/MyCRGID"
 """
@@ -917,6 +922,12 @@ parameters:
   - name: --disable-vpa
     type: bool
     short-summary: Disable vertical pod autoscaler for cluster.
+  - name: --enable-addon-autoscaling
+    type: bool
+    short-summary: Enable addon autoscaling for cluster.
+  - name: --disable-addon-autoscaling
+    type: bool
+    short-summary: Disable addon autoscaling for cluster.
   - name: --enable-force-upgrade
     type: bool
     short-summary: Enable forceUpgrade cluster upgrade settings override.
@@ -986,6 +997,10 @@ examples:
     text: az aks update -g MyResourceGroup -n MyManagedCLuster --enable-vpa
   - name: Disable VPA(Vertical Pod Autoscaler) for an existing kubernetes cluster.
     text: az aks update -g MyResourceGroup -n MyManagedCLuster --disable-vpa
+  - name: Enable addon autoscaling for an existing kubernetes cluster.
+    text: az aks update -g MyResourceGroup -n MyManagedCLuster --enable-addon-autoscaling
+  - name: Disable addon autoscaling for an existing kubernetes cluster.
+    text: az aks update -g MyResourceGroup -n MyManagedCLuster --disable-addon-autoscaling
 """
 
 helps['aks delete'] = """
